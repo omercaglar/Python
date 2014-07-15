@@ -1,0 +1,35 @@
+bilgi = "Kayıt olmak için aşağıdaki gerekli yerleri doldurunuz.\n"
+print(bilgi, "-"*len(bilgi), sep="")
+
+#Kullanıcı girişi
+k_adi=input("Kullanıcı adı: ")
+parola=input("Parola: ")
+e_posta=input("E-Posta: ")
+
+
+#Karakter uzunluğu ölçme
+k_adi_uzunluk = len(k_adi)
+parola_uzunluk = len(parola)
+e_posta_uzunluk = len(e_posta)
+
+
+#inputlarımıza koşul ekleme zamanı
+if k_adi_uzunluk >= 25:
+    print("Kullanıcı adınız 25 karakteri geçemez.")
+    
+if parola_uzunluk >= 25:
+    print("Hata: Parolanız 25 karakteri geçemez.")
+else:
+    print("Başarıyla kayıt olundu. Hesap bilgileriniz için masaüstüne","\n","veya Python33 klasörü içindeki Hesap_Bilgileri.txt metin belgesine bakın.")
+#Başlık
+baslik = "HESAP BİLGİLERİNİZ"
+
+
+#Oluşturulan hesabın bilgilerini kullanıcıya metin dosyası içinde aktarma.
+import sys
+hesap_bilgileri = open ("Hesap_Bilgileriniz.txt", "w")
+sys.stdout = hesap_bilgileri
+print(baslik,"\n", "-"*len(baslik))
+print("Kullanıcı adınız: ",k_adi, "\n","Şifreniz: ",parola, "\n",
+      "E-posta: ",e_posta, flush=True, end="\n")
+
